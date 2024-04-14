@@ -6,10 +6,11 @@ import { SenhasService } from '../services/senhas.service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
+
 export class Tab1Page {
+  proximaSenha: string = ''; // Inicializa a propriedade proximaSenha
 
-  inputNovaSenha: string = '';
-
-  constructor(public senhasService: SenhasService) {}
-
+  constructor(public senhasService: SenhasService) {
+  }
+  
 }

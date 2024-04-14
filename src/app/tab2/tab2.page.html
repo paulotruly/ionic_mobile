@@ -13,5 +13,29 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-button expand="block" (click)="chamarProximaSenha()">Chamar próxima senha</ion-button>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-text>
+        <H1 color="white">Senhas na fila</H1>
+      </ion-text>
+
+      <ion-list>
+        <ion-item *ngFor="let senha of senhasService.senhasArray.ST">
+          <div>
+            <p>{{ senha }}</p>
+          </div>
+        </ion-item>
+      </ion-list>        
+
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
