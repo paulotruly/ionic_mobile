@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 
 import { SenhasService } from './senhas.service';
 
+////
+
 describe('SenhasService', () => {
   let service: SenhasService;
 
@@ -14,3 +16,4 @@ describe('SenhasService', () => {
     expect(service).toBeTruthy();
   });
 });
+
