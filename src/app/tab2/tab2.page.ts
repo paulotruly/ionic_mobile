@@ -13,12 +13,20 @@ export class Tab2Page {
   chamarProximaSenha() {
     // Verifica se há senhas na lista
     if (this.senhasService.senhasArray.ST.length > 0) {
+      // Ordena a lista de senhas de acordo com as prioridades SP > SE > SG
+      this.senhasService.senhasArray.ST.sort((a: string, b: string) => {
+        const priorityMap: { [key: string]: number } = { 'SP': 1, 'SE': 2, 'SG': 3 };
+        return priorityMap[a.substring(9, 11)] - priorityMap[b.substring(9, 11)];
+      });
+
       // Pega a primeira senha da lista
       const proximaSenha = this.senhasService.senhasArray.ST[0];
       // Remove a senha da lista de senhas
       this.senhasService.senhasArray.ST.shift();
-      // Atualiza a senha no serviço ou em qualquer outro lugar necessário
-      this.senhasService.senhasArray.ST = this.senhasService.senhasArray.ST; // Forçar atualização do array
+      // Armazena a senha emitida
+      this.senhasService.senhaEmitida = proximaSenha;
+      let ultimaSenhaSP = this.senhasService.senhaEmitida;
+      console.log(ultimaSenhaSP);
       return proximaSenha;
     } else {
       // Se não houver senhas na lista, exiba uma mensagem ou tome a ação apropriada
