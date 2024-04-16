@@ -25,8 +25,6 @@ export class Tab2Page {
       this.senhasService.senhasArray.ST.shift();
       // Armazena a senha emitida
       this.senhasService.senhaEmitida = proximaSenha;
-      let ultimaSenhaSP = this.senhasService.senhaEmitida;
-      console.log(ultimaSenhaSP);
       return proximaSenha;
     } else {
       // Se não houver senhas na lista, exiba uma mensagem ou tome a ação apropriada

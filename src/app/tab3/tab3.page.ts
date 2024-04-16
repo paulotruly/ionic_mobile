@@ -10,4 +10,8 @@ export class Tab3Page {
 
   constructor(public senhasService: SenhasService) {}
 
+  contarSenhasSP(): number {
+    // Conta o número de senhas prioritárias (SP) na lista de senhas
+    return this.senhasService.senhasArray.SP.length;
+  }
 }

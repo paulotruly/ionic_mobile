@@ -15,6 +15,8 @@ export class SenhasService {
 
   constructor() {}
 
+  public guiches: boolean[] = [false, false, false]; // Array para representar o estado dos guichês
+
   public senhasArray : any = {
     'SP': [],
     'SE': [],
@@ -27,24 +29,12 @@ export class SenhasService {
   somaGeral() {
     this.senhasGeral++; this.senhasTotal++;
   }
-
   somaPrior() {
     this.senhasPrior++; this.senhasTotal++;
   }
-
   somaExame() {
     this.senhasExame++; this.senhasTotal++;
   }
-
-
-
-
-
-
-
-
-  
-
   public chamarSenha() {
     let listaSenhas = this.senhasArray;
 
@@ -81,17 +71,8 @@ export class SenhasService {
     return this.senhaRemovida; // Retorna a última senha removida
 }
 
-
-
-
-
-
-
-
-
-
-
   novaSenha(tipoSenha: string = '') {
+
     if (tipoSenha == 'SG') {
       this.somaGeral();
       this.inputNovaSenha = 
@@ -103,6 +84,7 @@ export class SenhasService {
         (this.senhasArray['SG'].length + 1).toString().padStart(2, '0');
       this.senhasArray.SG.push(this.inputNovaSenha);
       this.senhasArray.ST.push(this.inputNovaSenha);
+
     } else if (tipoSenha == 'SP') {
       this.somaPrior();
       this.inputNovaSenha = 
@@ -114,6 +96,7 @@ export class SenhasService {
         (this.senhasArray['SP'].length + 1).toString().padStart(2, '0');
       this.senhasArray.SP.push(this.inputNovaSenha);
       this.senhasArray.ST.push(this.inputNovaSenha);
+
     } else if (tipoSenha == 'SE') {
       this.somaExame();
       this.inputNovaSenha = 
@@ -125,7 +108,10 @@ export class SenhasService {
         (this.senhasArray['SE'].length + 1).toString().padStart(2, '0');
       this.senhasArray.SE.push(this.inputNovaSenha);
       this.senhasArray.ST.push(this.inputNovaSenha);
+
     }
+
     console.log(this.senhasArray);  
+
   }
 }
